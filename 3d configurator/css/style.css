@@ -1,0 +1,337 @@
+:root {
+    --color-primary: #3b6dda;
+    --color-primary-text: #ffffff;
+    --color-text: #091c36;
+}
+
+/* Global Section  */
+
+body, html {
+    overflow-x: hidden;
+	font-family: 'Nunito Sans', sans-serif;
+}
+
+/* 
+Margin bottom of 1rem had to be added because the theme did not have the last update of
+Bulma with the spacing classes 
+*/
+.mb-4 {
+	margin-bottom: 1rem;
+}
+
+.columns {
+	margin: 0;
+}
+
+/* Page Section */
+
+#page {
+	width: 100vw;
+	height: 100vh;
+	max-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+}
+
+/* Header Section */
+
+header {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgb(197, 197, 197);
+}
+
+header .title {
+	font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+/* Main Section */
+
+main {
+	flex: 1 1 auto;
+}
+
+.layout-container.columns {
+	width: 100%;
+	height: 100%;
+	max-height: 100%;
+	position: relative;
+}
+
+/* Window Section */
+
+.window-container {
+	width: 100%;
+	padding: 0;
+	position: relative;
+	margin-bottom: -6px;
+}
+
+main .layout-container .dark-overlay {
+	display: none;
+}
+
+.window-container .canvas-container {
+	position: relative;
+}
+
+.window-container .canvas-container canvas {
+	background-color: rgb(223, 223, 223);
+}
+
+.window-container .overlay-buttons .button.is-active {
+    background-color: var(--color-primary);
+    color: var(--color-primary-text);
+    border: 1px solid var(--color-primary);
+}
+
+.window-container .overlay-buttons .button:not(.is-active) {
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+}
+
+.window-container .button.side-menu {
+	display: none;
+	position: absolute;
+	right: 10px;
+    top: 10px;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.window-container .buttons-top,
+.window-container .buttons-bottom {
+	position: absolute;
+	left: 10px;
+}
+
+.window-container .buttons-top {
+    top: 10px;
+    margin-right: 65px;
+}
+
+.window-container .buttons-bottom {
+	bottom: 16px;
+}
+
+.window-container .buttons-bottom .buttons {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	margin-bottom: 0;
+}
+
+.window-container .buttons-bottom .buttons .button {
+	margin: 0;
+}
+
+/* Tabs Section */
+
+main .layout-container .tabs-container.column {
+	padding-right: 0.5rem;
+	overflow: auto;
+	padding: 0;
+}
+
+.panel-settings {
+	background-color: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;   
+    border-radius: 0;
+}
+
+.panel-settings .panel-heading {
+    border-radius: 0;
+	display: flex;
+	align-items: center;
+    justify-content: space-between;
+    flex: 0 0 auto;
+    background-color: var(--color-primary);
+    color: var(--color-primary-text);
+}
+
+.panel-settings .panel-heading .close-icon {
+    cursor: pointer;
+    display: none;
+}
+
+.panel-settings .panel-tabs-wrapper {
+    flex: 0 0 auto;
+	max-width: 100%;
+	overflow-x: auto;
+}
+
+.panel-settings .panel-tabs {
+	font-size: 1rem;
+	width: 100%;
+}
+
+.panel-settings .panel-tabs a {
+    transition: 0.3s ease-in;
+}
+
+.panel-settings .panel-tabs a.is-active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+}
+
+.panel-settings .panel-tab-body {
+    flex: 1 1 auto;
+    overflow: auto;
+    align-items: flex-start;
+    padding-top: 1rem;
+    color: var(--color-text);
+
+}
+
+.panel-settings .panel-tab-body:not(.is-active) {
+	display: none;
+}
+
+.layout-container .tabs-container .select {
+	width: 100%;
+}
+
+.layout-container .tabs-container .select select {
+	width: 100%;
+}
+
+.layout-container .tabs-container .field-group {
+    width: 100%;
+}
+
+.layout-container .tabs-container .field {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.layout-container .tabs-container .field .label {
+	flex: 1 0 50%;
+	margin: 0;
+	line-height: 1.1;
+    padding-right: 0.5rem;
+    color: var(--color-text);
+    
+}
+
+.layout-container .tabs-container .field .control {
+    flex: 1 0 50%;
+}
+
+.image-cards {
+	display: grid;
+	width: 100%;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 1rem;
+}
+
+.image-cards .card .card-content {
+	padding: 0.5rem;
+}
+
+/* Footer Section */
+
+footer {
+    background-color: #2a2d36;
+    color: #dbdbdb;
+	padding: 1.5rem;
+}
+
+/* Media Queries Section */
+
+
+@media only screen and (max-width: 1023px) {
+	/* Tabs Section */
+
+	.window-container .button.side-menu {
+		display: block;
+	}
+
+	main .layout-container .tabs-container.column {
+		position: absolute;
+		top: 0;
+		right: -100%;
+		padding-left: 0;
+		padding-right: 0;
+		z-index: 5;
+		transition: 0.5s ease-out;
+		width: 50%;
+	}
+
+	main .layout-container.side-menu-shown .tabs-container.column {
+		right: 0;
+	}
+
+	main .layout-container.side-menu-shown .dark-overlay {
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 6px;
+		right: 0;
+		transition: 0.2s ease-out;
+		background: rgba(0, 0, 0, 0.582);
+		z-index: 4;
+		display: block;
+    }
+    
+    .panel-settings .panel-heading .close-icon {
+        display: block;
+    }
+    
+}
+
+@media only screen and (max-width: 768px) {
+	/* Page Section */
+
+	#page {
+		height: fit-content;
+		max-height: initial;
+		padding: 0;
+	}
+
+	/* Header Section */
+
+	header {
+		padding: 1rem;
+	}
+
+	/* Main Section */
+
+	.window-container {
+		margin-right: 0;
+	}
+
+	.window-container .canvas-container {
+		margin-bottom: -6px;
+    }
+    
+    /* Tabs Section */
+
+    main .layout-container .tabs-container.column {
+		width: 80%;
+	}
+
+	/* Footer Section */
+
+	footer {
+		padding: 1rem;
+	}
+}
+
+
+@media only screen and (max-width: 400px) {
+    
+    /* Tabs Section */
+
+	main .layout-container .tabs-container.column {
+		width: 90%;
+	}
+
+}
